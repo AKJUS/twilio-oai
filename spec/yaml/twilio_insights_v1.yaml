@@ -1361,7 +1361,7 @@ components:
           example: Omnichannel
         clientQueryId:
           type: string
-          example: ConversationsCount
+          example: OperatorResultCount
         query:
           type: object
           properties:
@@ -1370,15 +1370,14 @@ components:
               items:
                 type: string
               example:
-              - '#:'
-              - '#: OperatorResults'
+              - OperatorResult.Count
             dimensions:
               type: array
               items:
                 type: string
               example:
-              - DateCreated
-              - OperatorResults
+              - OperatorResult.CreatedDate
+              - OperatorResult.ConversationId
             filters:
               type: array
               description: Nested filter conditions. Always use `op` and `expressions`.
@@ -1431,6 +1430,7 @@ components:
             granularity:
               type: string
               enum:
+              - hour
               - day
               - week
               - month
@@ -1455,7 +1455,7 @@ components:
                 properties:
                   field:
                     type: string
-                    example: '#: OperatorResults'
+                    example: OperatorResult.Count
                   direction:
                     type: string
                     enum:
@@ -1538,7 +1538,7 @@ components:
                   properties:
                     name:
                       type: string
-                    title:
+                    displayName:
                       type: string
                     description:
                       type: string
@@ -1556,7 +1556,7 @@ components:
                   properties:
                     name:
                       type: string
-                    title:
+                    displayName:
                       type: string
                     description:
                       type: string

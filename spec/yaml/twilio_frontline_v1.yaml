@@ -224,6 +224,8 @@ paths:
 servers:
 - url: https://frontline-api.twilio.com
 tags:
+- name: FrontlineV1Index
 - name: FrontlineV1User
+- name: FrontlineV1Version
 security:
 - accountSid_authToken: []

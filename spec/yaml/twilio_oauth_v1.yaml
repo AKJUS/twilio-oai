@@ -251,6 +251,8 @@ servers:
 - url: https://oauth.twilio.com
 tags:
 - name: OauthV1Authorize
+- name: OauthV1Index
 - name: OauthV1Token
+- name: OauthV1Version
 security:
 - accountSid_authToken: []

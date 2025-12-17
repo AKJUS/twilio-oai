@@ -1617,8 +1617,7 @@ paths:
     - url: https://numbers.twilio.com
     description: ''
     x-twilio:
-      defaultOutputProperties:
-      - port_in_request_sid
+      defaultOutputProperties: []
       mountName: porting_all_port_ins
       pathType: list
     get:
@@ -1633,6 +1632,9 @@ paths:
         description: Page start token, if null then it will start from the beginning
         schema:
           type: string
+        examples:
+          readEmpty:
+            value: KWbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
       - name: Size
         in: query
         description: Number of items per page
@@ -1643,6 +1645,9 @@ paths:
           default: 20
           minimum: 1
           maximum: 100
+        examples:
+          readEmpty:
+            value: 20
       - name: PortInRequestSid
         in: query
         description: Filter by Port in request SID, supports multiple values separated
@@ -1650,26 +1655,36 @@ paths:
         required: false
         schema:
           type: string
+        examples:
+          readEmpty:
+            value: KW123abc12345678901234567890abcd
       - name: PortInRequestStatus
         in: query
         description: Filter by Port In request status
         required: false
         schema:
           type: string
+        examples:
+          readEmpty:
+            value: Completed
       - name: CreatedBefore
         in: query
         description: Find all created before a certain date
         required: false
         schema:
           type: string
-          format: date-time
+        examples:
+          readEmpty:
+            value: '2025-05-05'
       - name: CreatedAfter
         in: query
         description: Find all created after a certain date
         required: false
         schema:
           type: string
-          format: date-time
+        examples:
+          readEmpty:
+            value: '2025-01-05'
       responses:
         '200':
           content:
@@ -1689,13 +1704,13 @@ paths:
                   value:
                     port_in_requests:
                     - port_in_request_sid: KWaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                      port_in_request_status: In Review
-                      status_last_updated_timestamp: '2025-07-30T05:21:12Z'
+                      port_in_request_status: Completed
+                      status_last_updated_timestamp: '2025-04-30'
                       phone_numbers_requested: 1
                       phone_numbers_ported: 0
                       suggested_action: null
                     meta:
-                      next_token: null
+                      next_token: KWbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
                       previous_token: null
                 readEmpty:
                   value:

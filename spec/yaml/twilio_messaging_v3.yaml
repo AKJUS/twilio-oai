@@ -23,15 +23,7 @@ paths:
   /v3/OptOuts/Configurations/MessageTypes: {}
   /v3/OptOuts/{OptOutSid}/MessageTypes: {}
   /v3/OptOuts/{OptOutSid}/Messages: {}
-  /v3/OptOuts/{OptOutSid}/Keywords:
-    parameters:
-    - name: OptOutSid
-      in: path
-      required: true
-      description: Opt Out Sid
-      schema:
-        type: string
-        pattern: ^OO[0-9a-fA-F]{32}$
+  /v3/OptOuts/{OptOutSid}/Keywords: {}
 components:
   securitySchemes:
     accountSid_authToken:
@@ -376,7 +368,7 @@ components:
       required:
       - account_sid
       - opt_out_sid
-      - keywords
+      - config
       properties:
         account_sid:
           type: string
@@ -388,7 +380,7 @@ components:
           description: The SID of the opt-out configuration
           pattern: ^OO[0-9a-fA-F]{32}$
           example: OO1234567890abcdef1234567890abcdef
-        keywords:
+        config:
           type: array
           description: List of keyword configurations for different keyword types
           items:
@@ -422,13 +414,13 @@ components:
     OptOutKeywordsEntity:
       type: object
       required:
-      - keyword_type
-      - message_type
+      - keywordType
+      - messageType
       - keyword
       properties:
-        keyword_type:
+        keywordType:
           $ref: '#/components/schemas/KeywordLocaleType'
-        message_type:
+        messageType:
           type: string
           description: The message type identifier (typically country codes or special
             identifiers)

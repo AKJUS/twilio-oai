@@ -1409,6 +1409,22 @@ components:
           nullable: true
           description: An optional external reference ID supplied by customer and
             echoed back on status retrieval.
+        vetting_id:
+          type: string
+          nullable: true
+          maxLength: 500
+        vetting_provider:
+          $ref: '#/components/schemas/tollfree_verification_enum_vetting_provider'
+        vetting_id_expiration:
+          type: string
+          nullable: true
+          format: date-time
+    tollfree_verification_enum_vetting_provider:
+      type: string
+      nullable: true
+      enum:
+      - CAMPAIGN_VERIFY
+      description: The third-party political vetting provider.
     tollfree_verification_enum_status:
       type: string
       enum:
@@ -6527,6 +6543,9 @@ paths:
                     privacy_policy_url: https://www.example.com/privacy
                     terms_and_conditions_url: https://www.example.com/terms
                     tollfree_phone_number: '+18003334444'
+                    vetting_id: null
+                    vetting_id_expiration: null
+                    vetting_provider: null
           headers:
             Access-Control-Allow-Origin:
               description: Specify the origin(s) allowed to access the resource
@@ -6557,8 +6576,8 @@ paths:
       - accountSid_authToken: []
       operationId: FetchTollfreeVerification
     post:
-      description: Create a tollfree verification
-      summary: Create a tollfree verification
+      description: Edit a tollfree verification
+      summary: Edit a tollfree verification
       tags:
       - MessagingV1TollfreeVerification
       parameters:
@@ -6636,6 +6655,9 @@ paths:
                     privacy_policy_url: https://www.example.com/privacy
                     terms_and_conditions_url: https://www.example.com/terms
                     tollfree_phone_number: '+18003334444'
+                    vetting_id: null
+                    vetting_id_expiration: null
+                    vetting_provider: null
           headers:
             Access-Control-Allow-Origin:
               description: Specify the origin(s) allowed to access the resource
@@ -6802,6 +6824,11 @@ paths:
                     type: string
                   description: List of keywords that users can text in to opt in to
                     receive messages.
+                VettingProvider:
+                  $ref: '#/components/schemas/tollfree_verification_enum_vetting_provider'
+                VettingId:
+                  type: string
+                  description: The unique ID of the vetting
             examples:
               update:
                 value:
@@ -7051,6 +7078,9 @@ paths:
                       privacy_policy_url: https://www.example.com/privacy
                       terms_and_conditions_url: https://www.example.com/terms
                       tollfree_phone_number: '+18003334444'
+                      vetting_id: null
+                      vetting_id_expiration: null
+                      vetting_provider: null
           headers:
             Access-Control-Allow-Origin:
               description: Specify the origin(s) allowed to access the resource
@@ -7150,6 +7180,9 @@ paths:
                     privacy_policy_url: https://www.example.com/privacy
                     terms_and_conditions_url: https://www.example.com/terms
                     tollfree_phone_number: '+18003334444'
+                    vetting_id: null
+                    vetting_id_expiration: null
+                    vetting_provider: null
                 create2:
                   value:
                     sid: HHaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -7208,6 +7241,9 @@ paths:
                     privacy_policy_url: https://www.example.com/privacy
                     terms_and_conditions_url: https://www.example.com/terms
                     tollfree_phone_number: '+18003334444'
+                    vetting_id: null
+                    vetting_id_expiration: null
+                    vetting_provider: null
           headers:
             Access-Control-Allow-Origin:
               description: Specify the origin(s) allowed to access the resource
@@ -7385,6 +7421,11 @@ paths:
                     type: string
                   description: List of keywords that users can text in to opt in to
                     receive messages.
+                VettingProvider:
+                  $ref: '#/components/schemas/tollfree_verification_enum_vetting_provider'
+                VettingId:
+                  type: string
+                  description: The unique ID of the vetting
               required:
               - BusinessName
               - BusinessWebsite
@@ -7413,8 +7454,7 @@ paths:
                   BusinessContactPhone: '+11231231234'
                   NotificationEmail: support@company.com
                   UseCaseCategories:
-                  - TWO_FACTOR_AUTHENTICATION
-                  - MARKETING
+                  - POLITICAL_ELECTION_CAMPAIGNS
                   UseCaseSummary: This number is used to send out promotional offers
                     and coupons to the customers of John's Coffee Shop
                   ProductionMessageSample: lorem ipsum
@@ -7439,6 +7479,8 @@ paths:
                   - START
                   PrivacyPolicyUrl: https://www.example.com/privacy
                   TermsAndConditionsUrl: https://www.example.com/terms
+                  VettingId: cv|1.0|mno|tfree|a9792599-2156-457a-985b-f9045789b139|osfj78f1qrtue37
+                  VettingProvider: CAMPAIGN_VERIFY
               create2:
                 value:
                   CustomerProfileSid: BUaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

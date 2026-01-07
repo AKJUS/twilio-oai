@@ -1359,9 +1359,6 @@ components:
         namespace:
           type: string
           example: Omnichannel
-        clientQueryId:
-          type: string
-          example: OperatorResultCount
         query:
           type: object
           properties:
@@ -1392,11 +1389,6 @@ components:
                     enum:
                     - and
                     - or
-                    - eq
-                    - ne
-                    - gt
-                    - lt
-                    - in
                     example: and
                   expressions:
                     type: array
@@ -1409,8 +1401,6 @@ components:
                         op:
                           type: string
                           enum:
-                          - and
-                          - or
                           - eq
                           - ne
                           - gt
@@ -1538,8 +1528,6 @@ components:
                   properties:
                     name:
                       type: string
-                    displayName:
-                      type: string
                     description:
                       type: string
                     type:
@@ -1555,8 +1543,6 @@ components:
                   - type
                   properties:
                     name:
-                      type: string
-                    displayName:
                       type: string
                     description:
                       type: string

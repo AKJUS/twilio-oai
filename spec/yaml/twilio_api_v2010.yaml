@@ -24463,7 +24463,9 @@ paths:
                   type: string
                   description: The SID or unique name of the [Intelligence Service](https://www.twilio.com/docs/conversational-intelligence/api/service-resource)
                     for persisting transcripts and running post-call Language Operators
-                    .
+                EnableProviderData:
+                  type: boolean
+                  description: Whether the callback includes raw provider data.
             examples:
               createNoArgs:
                 value: {}
@@ -24483,6 +24485,7 @@ paths:
                   Hints: this is a hint
                   EnableAutomaticPunctuation: true
                   IntelligenceService: GAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                  EnableProviderData: false
   /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Transcriptions/{Sid}.json:
     servers:
     - url: https://api.twilio.com

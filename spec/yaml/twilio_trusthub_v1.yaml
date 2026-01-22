@@ -1601,6 +1601,12 @@ paths:
                     type: string
                   description: List of keywords that users can text in to opt in to
                     receive messages.
+                VettingId:
+                  type: string
+                  description: Unique identifier for the created Vetting .
+                VettingProvider:
+                  type: string
+                  description: Name of the vetting provider.
               required:
               - TollfreePhoneNumber
               - NotificationEmail
@@ -1711,6 +1717,8 @@ paths:
                   TermsAndConditionsUrl: http://www.company.com/terms
                   AgeGatedContent: false
                   ExternalReferenceId: EXT123456
+                  VettingId: VI123456
+                  VettingProvider: VettingProvider
                   OptInKeywords:
                   - JOIN
                   - SUBSCRIBE

@@ -1241,6 +1241,13 @@ components:
           pattern: ^RM[0-9a-fA-F]{32}$
           nullable: true
           description: The SID of the transcriptions's room.
+        source_sid:
+          type: string
+          minLength: 34
+          maxLength: 34
+          pattern: ^CA[0-9a-fA-F]{32}$
+          nullable: true
+          description: The SID of the transcriptions's associated call.
         status:
           $ref: '#/components/schemas/room_transcriptions_enum_status'
         date_created:
@@ -5631,6 +5638,7 @@ paths:
                     ttid: video_extension_2c70be23-4788-423d-9351-df6705efa035
                     account_sid: ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                     room_sid: RMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                    source_sid: CAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                     date_created: '2015-07-30T20:00:00Z'
                     date_updated: '2015-07-30T20:00:00Z'
                     start_time: '2015-07-30T20:00:00Z'
@@ -5699,6 +5707,7 @@ paths:
                     ttid: video_extension_2c70be23-4788-423d-9351-df6705efa035
                     account_sid: ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                     room_sid: RMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                    source_sid: CAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                     date_created: '2015-07-30T20:00:00Z'
                     date_updated: '2015-07-30T20:00:00Z'
                     start_time: '2015-07-30T20:00:00Z'
@@ -5847,6 +5856,7 @@ paths:
                     - ttid: video_extension_2c70be23-4788-423d-9351-df6705efa035
                       account_sid: ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                       room_sid: RMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                      source_sid: CAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                       date_created: '2015-07-30T20:00:00Z'
                       date_updated: '2015-07-30T20:00:00Z'
                       start_time: '2015-07-30T20:00:00Z'
@@ -5917,6 +5927,7 @@ paths:
                     ttid: video_extension_2c70be23-4788-423d-9351-df6705efa035
                     account_sid: ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                     room_sid: RMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                    source_sid: CAaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                     date_created: '2015-07-30T20:00:00Z'
                     date_updated: '2015-07-30T20:00:00Z'
                     start_time: '2015-07-30T20:00:00Z'

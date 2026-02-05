@@ -1816,7 +1816,10 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "x-twilio": {
+      "apiStandards": "v0.1"
+    }
   },
   "openapi": "3.0.1",
   "paths": {
@@ -9372,19 +9375,19 @@
                   },
                   "BusinessRegistrationNumber": {
                     "type": "string",
-                    "description": "A legally recognized business registration number"
+                    "description": "A legally recognized business registration number. Required for all business types except SOLE_PROPRIETOR."
                   },
                   "BusinessRegistrationAuthority": {
                     "type": "string",
-                    "description": "The organizational authority for business registrations"
+                    "description": "The organizational authority for business registrations. Required for all business types except SOLE_PROPRIETOR."
                   },
                   "BusinessRegistrationCountry": {
                     "type": "string",
-                    "description": "Country business is registered in"
+                    "description": "The country where the business is registered. Required for all business types except SOLE_PROPRIETOR."
                   },
                   "BusinessType": {
                     "type": "string",
-                    "description": "The type of business, valid values are PRIVATE_PROFIT, PUBLIC_PROFIT, NON_PROFIT, SOLE_PROPRIETOR, GOVERNMENT"
+                    "description": "The type of business, valid values are PRIVATE_PROFIT, PUBLIC_PROFIT, NON_PROFIT, SOLE_PROPRIETOR, GOVERNMENT. Required field."
                   },
                   "BusinessRegistrationPhoneNumber": {
                     "type": "string",

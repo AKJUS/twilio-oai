@@ -2367,6 +2367,10 @@ components:
         status:
           type: string
           nullable: true
+        type:
+          type: string
+          nullable: true
+          description: The phone number type.
     incoming_phone_number_enum_address_requirement:
       type: string
       enum:
@@ -6664,6 +6668,8 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
+  x-twilio:
+    apiStandards: v0.1
 openapi: 3.0.1
 paths:
   /2010-04-01/Accounts.json:
@@ -11769,11 +11775,9 @@ paths:
             value: '2008-01-02'
       - name: StartTime<
         in: query
-        description: 'Only include calls that started on this date. Specify a date
-          as `YYYY-MM-DD` in UTC, for example: `2009-07-06`, to read only calls that
-          started on this date. You can also specify an inequality, such as `StartTime<=YYYY-MM-DD`,
-          to read calls that started on or before midnight of this date, and `StartTime>=YYYY-MM-DD`
-          to read calls that started on or after midnight of this date.'
+        description: 'Only include calls that started before this date. Specify a
+          date as `YYYY-MM-DD` in UTC, for example: `2009-07-06`, to read only calls
+          that started before this date.'
         schema:
           type: string
           format: date-time
@@ -11784,11 +11788,9 @@ paths:
             value: 06/11/2019 22:05:25 MST
       - name: StartTime>
         in: query
-        description: 'Only include calls that started on this date. Specify a date
-          as `YYYY-MM-DD` in UTC, for example: `2009-07-06`, to read only calls that
-          started on this date. You can also specify an inequality, such as `StartTime<=YYYY-MM-DD`,
-          to read calls that started on or before midnight of this date, and `StartTime>=YYYY-MM-DD`
-          to read calls that started on or after midnight of this date.'
+        description: 'Only include calls that started on or after this date. Specify
+          a date as `YYYY-MM-DD` in UTC, for example: `2009-07-06`, to read only calls
+          that started on or after this date.'
         schema:
           type: string
           format: date-time
@@ -11812,11 +11814,9 @@ paths:
             value: '2009-01-02'
       - name: EndTime<
         in: query
-        description: 'Only include calls that ended on this date. Specify a date as
-          `YYYY-MM-DD` in UTC, for example: `2009-07-06`, to read only calls that
-          ended on this date. You can also specify an inequality, such as `EndTime<=YYYY-MM-DD`,
-          to read calls that ended on or before midnight of this date, and `EndTime>=YYYY-MM-DD`
-          to read calls that ended on or after midnight of this date.'
+        description: 'Only include calls that ended before this date. Specify a date
+          as `YYYY-MM-DD` in UTC, for example: `2009-07-06`, to read only calls that
+          ended before this date.'
         schema:
           type: string
           format: date-time
@@ -11827,11 +11827,9 @@ paths:
             value: '2019-06-11 22:05:25.000'
       - name: EndTime>
         in: query
-        description: 'Only include calls that ended on this date. Specify a date as
-          `YYYY-MM-DD` in UTC, for example: `2009-07-06`, to read only calls that
-          ended on this date. You can also specify an inequality, such as `EndTime<=YYYY-MM-DD`,
-          to read calls that ended on or before midnight of this date, and `EndTime>=YYYY-MM-DD`
-          to read calls that ended on or after midnight of this date.'
+        description: 'Only include calls that ended on or after this date. Specify
+          a date as `YYYY-MM-DD` in UTC, for example: `2009-07-06`, to read only calls
+          that ended on or after this date.'
         schema:
           type: string
           format: date-time
@@ -13612,6 +13610,27 @@ paths:
                 type: string
                 example: X-Custom-Header1, X-Custom-Header2
           description: OK
+        '408':
+          description: Request Timeout
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    description: Twilio-specific error code
+                    type: integer
+                    format: int32
+                  message:
+                    description: Error message
+                    type: string
+                  more_info:
+                    description: Link to Error Code References
+                    type: string
+                  status:
+                    description: HTTP response status code
+                    type: integer
+                    format: int32
       security:
       - accountSid_authToken: []
       operationId: UpdateCallRecording
@@ -15776,6 +15795,7 @@ paths:
                     voice_receive_mode: voice
                     status: in-use
                     bundle_sid: BUaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                    type: local
           headers:
             Access-Control-Allow-Origin:
               description: Specify the origin(s) allowed to access the resource
@@ -16063,6 +16083,7 @@ paths:
                     voice_receive_mode: voice
                     status: in-use
                     bundle_sid: BUaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                    type: local
           headers:
             Access-Control-Allow-Origin:
               description: Specify the origin(s) allowed to access the resource
@@ -16302,6 +16323,7 @@ paths:
                       bundle_sid: BUaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                       voice_receive_mode: voice
                       status: in-use
+                      type: local
                     next_page_uri: null
                     page: 0
                     page_size: 50
@@ -16411,6 +16433,7 @@ paths:
                     bundle_sid: BUaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                     voice_receive_mode: voice
                     status: in-use
+                    type: local
           headers:
             Access-Control-Allow-Origin:
               description: Specify the origin(s) allowed to access the resource
@@ -21545,7 +21568,7 @@ paths:
     - url: https://api.twilio.com
     description: An OutgoingCallerId resource represents a single verified number
       that may be used as a caller ID when making outgoing calls via the REST API
-      and within the TwiML <Dial> verb.
+      and within the TwiML `<Dial>` verb.
     x-twilio:
       defaultOutputProperties:
       - sid
@@ -21749,7 +21772,7 @@ paths:
     - url: https://api.twilio.com
     description: An OutgoingCallerId resource represents a single verified number
       that may be used as a caller ID when making outgoing calls via the REST API
-      and within the TwiML <Dial> verb.
+      and within the TwiML `<Dial>` verb.
     x-twilio:
       defaultOutputProperties:
       - sid

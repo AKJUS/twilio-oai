@@ -635,7 +635,6 @@ components:
           type: array
           items:
             type: string
-            minItems: 1
           description: List of document SIDs for all phone numbers included in the
             port in request. At least one document SID referring to a document of
             the type Utility Bill is required.
@@ -1138,6 +1137,8 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
+  x-twilio:
+    apiStandards: v0.1
 openapi: 3.0.1
 paths:
   /v1/HostedNumber/Eligibility/Bulk:

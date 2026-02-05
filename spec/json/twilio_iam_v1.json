@@ -1958,7 +1958,10 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "x-twilio": {
+      "apiStandards": "v0.1"
+    }
   },
   "openapi": "3.0.1",
   "paths": {
@@ -2732,7 +2735,6 @@
     "/v1/Organizations/ExternalUsers": {},
     "/v1/Organizations/ExternalUsers/{userSid}": {},
     "/v1/Organizations/ImportUsers": {},
-    "/v1/Organization/AuthorizedApps": {},
     "/v1/Account/OAuthApps/{sid}": {
       "servers": [
         {
@@ -3082,13 +3084,6 @@
         }
       ]
     },
-    "/v1/Organization/OAuthApps/{sid}": {
-      "servers": [
-        {
-          "url": "https://iam.twilio.com"
-        }
-      ]
-    },
     "/v1/Organization/OAuthApps/{sid}/secret": {
       "servers": [
         {
@@ -3256,13 +3251,6 @@
           }
         }
       }
-    },
-    "/v1/Organization/OAuthApps": {
-      "servers": [
-        {
-          "url": "https://iam.twilio.com"
-        }
-      ]
     },
     "/v1/Organizations/InvitedUsers": {},
     "/v1/Organizations/ManagedAccounts/{accountSid}/ChangeOwner": {},

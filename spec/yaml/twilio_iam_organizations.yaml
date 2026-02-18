@@ -12,7 +12,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
   x-twilio:
-    apiStandards: _DANGEROUS_undefined
+    apiStandards: v0.1
 tags:
 - name: SCIM
   description: SCIM 2.0 User endpoints
@@ -1151,7 +1151,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TwilioServiceErrorResponse'
+                type: object
+                properties:
+                  code:
+                    description: Twilio-specific error code
+                    type: integer
+                    format: int32
+                  message:
+                    description: Error message
+                    type: string
+                  more_info:
+                    description: Link to Error Code References
+                    type: string
+                  status:
+                    description: HTTP response status code
+                    type: integer
+                    format: int32
           headers:
             Access-Control-Allow-Origin:
               description: Specify the origin(s) allowed to access the resource
@@ -1182,7 +1197,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TwilioServiceErrorResponse'
+                type: object
+                properties:
+                  code:
+                    description: Twilio-specific error code
+                    type: integer
+                    format: int32
+                  message:
+                    description: Error message
+                    type: string
+                  more_info:
+                    description: Link to Error Code References
+                    type: string
+                  status:
+                    description: HTTP response status code
+                    type: integer
+                    format: int32
           headers:
             Access-Control-Allow-Origin:
               description: Specify the origin(s) allowed to access the resource
@@ -1270,7 +1300,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TwilioServiceErrorResponse'
+                type: object
+                properties:
+                  code:
+                    description: Twilio-specific error code
+                    type: integer
+                    format: int32
+                  message:
+                    description: Error message
+                    type: string
+                  more_info:
+                    description: Link to Error Code References
+                    type: string
+                  status:
+                    description: HTTP response status code
+                    type: integer
+                    format: int32
           headers:
             Access-Control-Allow-Origin:
               description: Specify the origin(s) allowed to access the resource
@@ -1301,7 +1346,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TwilioServiceErrorResponse'
+                type: object
+                properties:
+                  code:
+                    description: Twilio-specific error code
+                    type: integer
+                    format: int32
+                  message:
+                    description: Error message
+                    type: string
+                  more_info:
+                    description: Link to Error Code References
+                    type: string
+                  status:
+                    description: HTTP response status code
+                    type: integer
+                    format: int32
           headers:
             Access-Control-Allow-Origin:
               description: Specify the origin(s) allowed to access the resource
@@ -1412,7 +1472,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TwilioServiceErrorResponse'
+                type: object
+                properties:
+                  code:
+                    description: Twilio-specific error code
+                    type: integer
+                    format: int32
+                  message:
+                    description: Error message
+                    type: string
+                  more_info:
+                    description: Link to Error Code References
+                    type: string
+                  status:
+                    description: HTTP response status code
+                    type: integer
+                    format: int32
           headers:
             Access-Control-Allow-Origin:
               description: Specify the origin(s) allowed to access the resource
@@ -1443,7 +1518,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TwilioServiceErrorResponse'
+                type: object
+                properties:
+                  code:
+                    description: Twilio-specific error code
+                    type: integer
+                    format: int32
+                  message:
+                    description: Error message
+                    type: string
+                  more_info:
+                    description: Link to Error Code References
+                    type: string
+                  status:
+                    description: HTTP response status code
+                    type: integer
+                    format: int32
           headers:
             Access-Control-Allow-Origin:
               description: Specify the origin(s) allowed to access the resource

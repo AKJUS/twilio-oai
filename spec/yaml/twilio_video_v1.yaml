@@ -5757,10 +5757,21 @@ paths:
               properties:
                 Status:
                   $ref: '#/components/schemas/room_transcriptions_enum_status'
+                Configuration:
+                  type: object
+                  description: A collection of properties that describe transcription
+                    behaviour.
             examples:
-              update:
+              updateStatus:
                 value:
                   Status: stopped
+              updateConfiguration:
+                value:
+                  Configuration: '{"LanguageCode": "EN-us", "ProfanityFilter": true}'
+              updateAllFields:
+                value:
+                  Status: started
+                  Configuration: '{"LanguageCode": "EN-us", "ProfanityFilter": true}'
   /v1/Rooms/{RoomSid}/Transcriptions:
     servers:
     - url: https://video.twilio.com

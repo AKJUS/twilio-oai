@@ -324,6 +324,8 @@ components:
           type: string
           description: 'The vertical of the sender. Allowed values are:
 
+            - `Alcohol`
+
             - `Automotive`
 
             - `Beauty, Spa and Salon`
@@ -340,23 +342,31 @@ components:
 
             - `Food and Grocery`
 
-            - `Public Service`
-
             - `Hotel and Lodging`
+
+            - `Matrimony Service`
 
             - `Medical and Health`
 
             - `Non-profit`
 
+            - `Online Gambling`
+
+            - `OTC Drugs`
+
+            - `Other`
+
+            - `Physical Gambling`
+
             - `Professional Services`
+
+            - `Public Service`
+
+            - `Restaurant`
 
             - `Shopping and Retail`
 
             - `Travel and Transportation`
-
-            - `Restaurant`
-
-            - `Other`
 
             '
           nullable: true
@@ -415,6 +425,8 @@ components:
           type: string
           description: 'The vertical of the sender. Allowed values are:
 
+            - `Alcohol`
+
             - `Automotive`
 
             - `Beauty, Spa and Salon`
@@ -431,23 +443,31 @@ components:
 
             - `Food and Grocery`
 
-            - `Public Service`
-
             - `Hotel and Lodging`
+
+            - `Matrimony Service`
 
             - `Medical and Health`
 
             - `Non-profit`
 
+            - `Online Gambling`
+
+            - `OTC Drugs`
+
+            - `Other`
+
+            - `Physical Gambling`
+
             - `Professional Services`
+
+            - `Public Service`
+
+            - `Restaurant`
 
             - `Shopping and Retail`
 
             - `Travel and Transportation`
-
-            - `Restaurant`
-
-            - `Other`
 
             '
           nullable: true
@@ -862,10 +882,25 @@ components:
     create_test_device_request:
       value:
         phone_number: '+14081111111'
-    create_test_device_response:
+    test_device_response:
       value:
         phone_number: '+14081111111'
         status: PENDING
+    list_test_devices_response:
+      value:
+        phone_numbers:
+        - phone_number: '+14081111111'
+          status: ACCEPTED
+        - phone_number: '+14082222222'
+          status: PENDING
+        meta:
+          page: 0
+          page_size: 10
+          first_page_url: https://messaging.twilio.com/v2/Channels/Senders/XEaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/TestDevices?PageSize=10&Page=0
+          previous_page_url: null
+          url: https://messaging.twilio.com/v2/Channels/Senders/XEaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/TestDevices?PageSize=10&Page=0
+          next_page_url: null
+          key: test_devices
     whatsapp_patch_update_configuration_request:
       value:
         configuration:

@@ -2037,7 +2037,7 @@ info:
     apiStandards: v0.1
 openapi: 3.0.1
 paths:
-  /v1/instances:
+  /v1/Instances:
     servers:
     - url: https://flex-api.twilio.com
     description: ''
@@ -2087,7 +2087,7 @@ paths:
                     date_updated: '2016-08-01T22:10:40Z'
       security:
       - accountSid_authToken: []
-  /v1/instances/{InstanceSid}:
+  /v1/Instances/{InstanceSid}:
     servers:
     - url: https://flex-api.twilio.com
     description: ''

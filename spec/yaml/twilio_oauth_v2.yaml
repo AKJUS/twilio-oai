@@ -232,6 +232,11 @@ components:
           - account
           - user
           - organization
+        active:
+          type: boolean
+          description: Whether this request represents user activity (true) or polling
+            (false)
+          default: true
     Auth0RefreshTokenResponse:
       required:
       - accessToken
@@ -267,6 +272,12 @@ components:
         email:
           type: string
         callbackUri:
+          type: string
+        returnTo:
+          type: string
+        g:
+          type: string
+        t:
           type: string
     Auth0TestLoginRequest:
       required:
@@ -344,6 +355,19 @@ components:
           format: uri
           nullable: true
           description: The redirect URL
+    SessionMetadataResponse:
+      type: object
+      required:
+      - isHipaaUser
+      - sessionIdleTimeout
+      - isVerificationRequired
+      properties:
+        isHipaaUser:
+          type: boolean
+        sessionIdleTimeout:
+          type: integer
+        isVerificationRequired:
+          type: boolean
     Error:
       description: Generic error
       type: object
